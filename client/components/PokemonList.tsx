@@ -22,14 +22,23 @@ export default function PokemonList() {
 
   return (
     <>
-      <h2>Pokémon in {generation.main_region.name}:</h2>
-      <ul>
-        {generation.pokemon_species.map((p) => (
-          <li key={p.url}>
-            <Link to={`/pokemon/${p.name.toLowerCase()}`}>{p.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h1 id="heading1">Pokémon in {generation.main_region.name}:</h1>
+      </div>
+      <section id="pokemonList">
+        <ul id="pokemonList">
+          {generation.pokemon_species.map((p) => (
+            <li key={p.url}>
+              <Link
+                to={`/pokemon/${p.name.toLowerCase()}`}
+                className="block-link"
+              >
+                {p.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   )
 }

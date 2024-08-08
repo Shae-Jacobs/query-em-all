@@ -1,6 +1,119 @@
 html {
-  font-family: monospace;
   font-size: 2xl;
+  font-family: 'Pixelify Sans', monospace;
+  background-image: url('https://i.imgur.com/O7ZWigt.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/* add your styles here! */
+Header {
+  text-align: center;
+  font-size: 12pt;
+}
+/* Had help from ChatGPT for the css as i couldn't figure it out */
+#pokemonList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the spacing between the blocks */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove bullet points */
 }
 
-/* add your styles here! */
+#pokemonList li {
+  width: 140px; /* Adjust the width of each block */
+  height: 70px; /* Adjust the height of each block */
+  margin: 0; /* Remove default margin */
+}
+
+.block-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://archives.bulbagarden.net/media/upload/2/25/Box_Forest_E.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-decoration: none;
+  color: black; /* Adjust the text color */
+  font-family: 'Pixelify Sans', sans-serif; /* Ensure the font is applied */
+  font-size: 16px; /* Adjust the font size */
+  transition: transform 0.2s; /* Add a transition for hover effect */
+}
+
+.block-link:hover {
+  transform: scale(1.05); /* Slightly enlarge the block on hover */
+}
+#pokemon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pixelify Sans', monospace;
+}
+#pokemon-card {
+  display: flex;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  width: 600px;
+}
+
+#pokeball-background {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 2px solid #000;
+  font-family: 'Pixelify Sans', monospace;
+  background-image: url('https://archives.bulbagarden.net/media/upload/b/b8/Box_Forest_VII.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#pokemonSprite {
+  height: 300px;
+  max-width: 100%;
+  z-index: 2;
+}
+
+#pokemon-info-box {
+  width: 200px;
+  padding: 16px;
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pixelify Sans', monospace;
+}
+
+#pokemon-info {
+  text-align: center;
+  font-family: 'Pixelify Sans', monospace;
+}
+
+#missing-content {
+  text-align: center;
+}

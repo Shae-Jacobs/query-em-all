@@ -9,94 +9,59 @@ export default function PokemonDetail() {
     data: pokemon,
     error,
     isError,
-    isPending,
+    isLoading,
   } = useQuery({
     queryKey: ['pokemonByName', name],
-    queryFn: () => fetchPokemonByName(name!),
+    queryFn: () => fetchPokemonByName(name as string),
   })
+
   if (isError) {
     return <p>error: {error.message}</p>
   }
-  if (isPending) {
-    ;<LoadingSpinner />
+
+  if (isLoading) {
+    return <LoadingSpinner />
   }
 
+  if (!pokemon) {
+    return (
+      <div id="missing-content">
+        <img
+          id="missing"
+          src="https://i.ytimg.com/vi/qnqnf2qQXFE/hqdefault.jpg"
+          alt="missing"
+        />
+      </div>
+    )
+  }
+  console.log(pokemon)
   return (
-    <div>
-      <h1>{pokemon?.name}</h1>
-      <h2>Types:</h2>
-      {pokemon?.types.map(({ type, slot }) => <p key={slot}>{type.name}</p>)}
-      <img src={pokemon?.sprites.front_default} alt="pokemon sprite front" />
-      <section>
-        <h2>Abilities: </h2>
-        {pokemon?.abilities.map(({ ability, slot }) => (
-          <p key={slot}>{ability.name}</p>
-        ))}
-      </section>
-      <section>
-        <h2>Moves: </h2>
-        {pokemon?.moves.map(({ move }) => <p key={move.name}>{move.name}</p>)}
-      </section>
+    <div id="pokemon">
+      <div id="pokemon-card">
+        <div id="pokeball-background">
+          <img
+            id="pokemonSprite"
+            src={pokemon.sprites.other['official-artwork'].front_default}
+            alt="pokemon sprite front"
+          />
+        </div>
+        <div id="pokemon-info">
+          <h1>{pokemon.name}</h1>
+          <h2>Types</h2>
+          {pokemon.types.map(({ type, slot }) => (
+            <p key={slot}>{type.name}</p>
+          ))}
+          <h2>Weight: {pokemon.weight / 10}kg</h2>
+          <h2>Height: {pokemon.height * 10}cm</h2>
+          <div id="abilities">
+            <h2>Abilities</h2>
+            {pokemon.abilities.map(({ ability, slot }) => (
+              <p key={slot}>{ability.name}</p>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
-{
-  /* // const pokemon: Pokemon = {
-//   id: 1,
-//   name: 'bulbasaur',
-//   sprites: {
-//     front_default:
-//       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-//     back_default:
-//       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
-//   },
-//   abilities: [
-//     {
-//       ability: {
-//         name: 'overgrow',
-//         url: 'https://pokeapi.co/api/v2/ability/65/',
-//       },
-//       is_hidden: false,
-//       slot: 1,
-//     },
-//     {
-//       ability: {
-//         name: 'chlorophyll',
-//         url: 'https://pokeapi.co/api/v2/ability/34/',
-//       },
-//       is_hidden: true,
-//       slot: 3,
-//     },
-//   ],
-//   moves: [
-//     {
-//       move: {
-//         name: 'razor-wind',
-//         url: 'https://pokeapi.co/api/v2/move/13/',
-//       },
-//     },
-//     {
-//       move: {
-//         name: 'swords-dance',
-//         url: 'https://pokeapi.co/api/v2/move/14/',
-//       },
-//     },
-//   ],
-//   types: [
-//     {
-//       slot: 0,
-//       type: {
-//         name: 'grass',
-//         url: 'https://pokeapi.co/api/v2/type/12/',
-//       },
-//     },
-//     {
-//       slot: 1,
-//       type: {
-//         name: 'poison',
-//         url: 'https://pokeapi.co/api/v2/type/4/',
-//       },
-//     },
-//   ],
-// } */
-}
+console.log(PokemonDetail)

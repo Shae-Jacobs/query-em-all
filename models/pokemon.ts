@@ -25,10 +25,17 @@ export interface Pokemon {
   sprites: {
     front_default: string
     back_default: string
+    other: {
+      'official-artwork': {
+        front_default: string
+      }
+    }
   }
   abilities: Array<Ability>
   moves: Array<Move>
   types: Array<TypeInfo>
+  height: number
+  weight: number
 }
 
 interface Ability {
