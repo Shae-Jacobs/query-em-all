@@ -37,7 +37,7 @@ npm run dev
 - Error state
 ### What I need to work on
  - CSS
-### This challenge can be used for the following trello assessment(s):
+### This challenge was used for the following trello assessment(s):
 
 - **WD02: Build a Javascript application that consumes a restful JSON API**
 
